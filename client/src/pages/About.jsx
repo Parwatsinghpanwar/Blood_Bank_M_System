@@ -3,19 +3,16 @@ import { Link } from "react-router-dom";
 import "../styles/about.css";
 
 const About = () => {
-  // --- TEAM DATA ---
-  const founders = [
-    {
-      id: 1,
-      name: "Bipul Das",
-      role: "Founder & Lead Developer",
-      bio: "A passionate technologist dedicated to solving the critical logistics gap in emergency healthcare. Built BloodLink to ensure no life is lost due to a lack of connection.",
-      // Using a random person image for placeholder
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-    },
-    // You can add more team members here
-  ];
+ const founders = [
+  {
+    id: 1,
+    name: "Parwat Singh Team ",
+    role: "Fullstack Developer",
+    bio: "A passionate Computer Science student focused on building real-world solutions using React and modern web technologies. Developed RaktAmrit to bridge the gap between blood donors and patients through a fast and reliable digital platform.",
+    image: "YOUR_IMAGE_LINK",
+  },
+  
+];
 
   return (
     <div className="about-container">

@@ -155,7 +155,7 @@ const Home = () => {
           <div className="footer-column">
             <h5>Company</h5>
             <Link to="/about">About Us</Link>
-            <Link to="/serves">Serves</Link>
+            <Link to="/services">Services</Link>
             <Link to="/contribute">Donate Money</Link>
           </div>
 
