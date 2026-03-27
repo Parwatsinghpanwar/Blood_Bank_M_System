@@ -204,7 +204,7 @@ const Services = () => {
             <h4>Contact Us</h4>
             <div className="contact-item">
               <span>📧</span>
-              <a href="mailto:hello@bloodlink.com">hello@bloodlink.com</a>
+              <a href="mailto:hello@RaktAmrit.com">hello@raktamrit.com</a>
             </div>
             <div className="contact-item">
               <span>📞</span>

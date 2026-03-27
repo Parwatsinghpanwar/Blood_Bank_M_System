@@ -164,7 +164,7 @@ const Home = () => {
             <h5>Contact Us</h5>
             <div className="contact-row">
               <span>📧</span>
-              <a href="mailto:hello@bloodlink.com">hello@bloodlink.com</a>
+              <a href="mailto:hello@RaktAmrit.com">hello@raktamrit.com</a>
             </div>
             <div className="contact-row">
               <span>📞</span>
