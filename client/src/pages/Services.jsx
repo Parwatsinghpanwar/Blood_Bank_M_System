@@ -180,7 +180,7 @@ const Services = () => {
         <div className="footer-content">
           {/* Brand Col */}
           <div className="footer-col brand">
-            <h3>BloodLink</h3>
+            <h3>RaktAmrit🩸</h3>
             <p>
               Innovating the supply chain of life. We are dedicated to ensuring
               blood is available to everyone, everywhere.
@@ -263,7 +263,7 @@ const Services = () => {
         </div>
 
         <div className="footer-bottom">
-          <p>© 2026 BloodLink Systems. All Rights Reserved.</p>
+          <p>© 2026 RaktAmrit🩸 Systems. All Rights Reserved.</p>
         </div>
       </footer>
     </div>
