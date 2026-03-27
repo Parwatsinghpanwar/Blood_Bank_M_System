@@ -1,4 +1,4 @@
-# BloodLink: Comprehensive Blood Bank & Emergency Response System
+# RaktAmrit🩸: Comprehensive Blood Bank & Emergency Response System
 
 ![MERN Stack](https://img.shields.io/badge/Stack-MERN-blue.svg)
 ![React](https://img.shields.io/badge/Frontend-React.js-61DAFB.svg)
