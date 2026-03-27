@@ -45,7 +45,7 @@ const About = () => {
               isn't just an inconvenience; it costs lives.
             </p>
             <p>
-              <strong>BloodLink</strong> was born from a simple yet powerful
+              <strong>RaktAmrit🩸</strong> was born from a simple yet powerful
               idea: What if technology could remove the friction? We utilize
               real-time geolocation, automated inventory balancing, and instant
               notifications to ensure that when a request is made, the network
@@ -98,7 +98,7 @@ const About = () => {
 
       {/* 4. FOUNDER / TEAM SECTION */}
       <section className="team-section">
-        <h2>Meet the Minds Behind BloodLink</h2>
+        <h2>Meet the Minds Behind RaktAmrit🩸</h2>
         <p className="team-intro">
           Driven by engineering excellence and human empathy.
         </p>
