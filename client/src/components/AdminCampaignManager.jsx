@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import AuthContext from "../context/AuthContext";
-import "../styles/adminCampaignManager.css"; // Import the premium styles
+import "../styles/adminCampaignManager.css"; //  Import the premium styles
 
 const AdminCampaignManager = () => {
   const { token } = useContext(AuthContext);
