@@ -13,7 +13,7 @@ const ProtectedRoute = ({ children }) => {
   }
 
   // If token exists, render the protected page
-  return children;
+  return children; 
 };
 
 export default ProtectedRoute;
