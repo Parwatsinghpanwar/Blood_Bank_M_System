@@ -77,58 +77,83 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: radial-gradient(circle at 50% 50%, #ffffff 0%, #f1f5f9 100%);
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
 }
 
-/* Abstract Background Shapes */
+
+
 .services-container .services-hero::before {
     content: '';
     position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 50vw;
-    height: 50vw;
-    background: radial-gradient(circle, rgba(230, 57, 70, 0.05) 0%, transparent 70%);
-    border-radius: 50%;
-    z-index: 0;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(230, 57, 70, 0.15), transparent 70%);
+    top: -100px;
+    left: -100px;
+    animation: moveGlow 8s infinite alternate ease-in-out;
 }
+
+.services-container .services-hero::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.15), transparent 70%);
+    bottom: -100px;
+    right: -100px;
+    animation: moveGlow 10s infinite alternate-reverse ease-in-out;
+}
+
+
 
 .services-container .services-hero-content {
     z-index: 1;
+
+
     max-width: 800px;
-    animation: fadeUp 0.8s ease-out;
 }
 
+
+
 .services-container .overline {
-    display: inline-block;
-    font-size: 0.8rem;
+    color: var(--svc-primary);
     font-weight: 700;
     letter-spacing: 3px;
     animation: fadeUp 0.8s ease;
 }
 
-.services-container .services-hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+.services-container h1 {
+    font-size: 3rem;
     font-weight: 800;
     color: var(--svc-dark);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-    letter-spacing: -1px;
+    animation: fadeUp 1s ease;
 }
 
-.services-container .services-hero p {
-    font-size: 1.25rem;
+.services-container p {
     color: var(--svc-muted);
-    max-width: 600px;
-    margin: 0 auto;
+    animation: fadeUp 1.2s ease;
 }
+
+
+
+
+
+
 
 /* --- 2. SOLUTIONS GRID (Bento Style) --- */
 .services-container .solutions-section {
     padding: 80px 8%;
-    background-color: var(--svc-white);
+
+    /* Base color */
+    background:
+        radial-gradient(circle at 20% 30%, rgba(230, 57, 70, 0.08), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(241, 66, 95, 0.06), transparent 40%),
+        linear-gradient(135deg, #ffffff 0%, #fff5f5 100%);
+
+    position: relative;
+    overflow: hidden;
 }
 
 .services-container .section-header {
@@ -285,7 +310,7 @@
 /* Premium Image Placeholder Style */
 .services-container .segment-image-placeholder {
     flex: 1;
-    height:fit-content;
+    height: fit-content;
     border-radius: 20px;
     border: 1px solid #cbd5e1;
     display: flex;
