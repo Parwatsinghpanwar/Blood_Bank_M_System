@@ -139,25 +139,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 5. CTA BANNER */}
-      <section className="cta-banner">
-        <div className="cta-content">
-          <h2>Ready to be a Hero?</h2>
-          <p>
-            You don't need a cape to save the world. You just need to show up.
-          </p>
-          <Link to="/contribute" className="btn-white">
-            Join the Movement
-          </Link>
-        </div>
-      </section>
-
       {/* 6. PROFESSIONAL FOOTER */}
       <footer className="footer-preview">
         <div className="footer-top">
           {/* Brand Column */}
           <div className="footer-column brand-col">
-            <h4>BloodLink</h4>
+            <h4>RaktAmrit🩸</h4>
             <p>
               Innovating the supply chain of life. We are dedicated to ensuring
               blood is available to everyone, everywhere.
@@ -168,7 +155,7 @@ const Home = () => {
           <div className="footer-column">
             <h5>Company</h5>
             <Link to="/about">About Us</Link>
-            <Link to="/contribute">Volunteering</Link>
+            <Link to="/serves">Serves</Link>
             <Link to="/contribute">Donate Money</Link>
           </div>
 
@@ -240,7 +227,7 @@ const Home = () => {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 BloodLink Systems. All Rights Reserved.</span>
+          <span>© 2026 RaktAmrit🩸 Systems. All Rights Reserved.</span>
         </div>
       </footer>
     </div>
