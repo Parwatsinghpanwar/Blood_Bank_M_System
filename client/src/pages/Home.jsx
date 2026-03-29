@@ -146,8 +146,9 @@ const Home = () => {
           <div className="footer-column brand-col">
             <h4>RaktAmrit🩸</h4>
             <p>
-              Innovating the supply chain of life. We are dedicated to ensuring
-              blood is available to everyone, everywhere.
+              Saving lives, one donation at a time.
+              Be the reason someone gets a second chance.</p>
+            <p>Your small act can create a lifetime of difference.
             </p>
           </div>
 
