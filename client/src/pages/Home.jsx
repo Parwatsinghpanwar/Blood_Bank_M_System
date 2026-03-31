@@ -99,30 +99,33 @@ const Home = () => {
 
       {/* 3. HOW IT WORKS */}
       <section className="process-section">
-        <h2>How BloodLink Works</h2>
+        <h2 className="section-title">How BloodLink Works</h2>
+
         <div className="process-grid">
-          <div className="process-step">
+          <div className="process-card">
+            <div className="step-number">01</div>
             <div className="step-icon">🩸</div>
-            <h4>1. Register</h4>
+            <h4>Register</h4>
             <p>
-              Create a profile as a donor, hospital, or volunteer in under 2
-              minutes.
+              Create your profile as a donor, hospital, or volunteer in just 2 minutes.
             </p>
           </div>
-          <div className="process-step">
+
+          <div className="process-card">
+            <div className="step-number">02</div>
             <div className="step-icon">🔍</div>
-            <h4>2. Connect</h4>
+            <h4>Connect</h4>
             <p>
-              Our algorithm matches urgency with the nearest available verified
-              stock or donor.
+              Our smart system matches urgent needs with the nearest available donors.
             </p>
           </div>
-          <div className="process-step">
+
+          <div className="process-card">
+            <div className="step-number">03</div>
             <div className="step-icon">🚑</div>
-            <h4>3. Save Lives</h4>
+            <h4>Save Lives</h4>
             <p>
-              Coordinate logistics instantly and track the donation until it
-              reaches the patient.
+              Track and coordinate donations until they safely reach the patient.
             </p>
           </div>
         </div>
