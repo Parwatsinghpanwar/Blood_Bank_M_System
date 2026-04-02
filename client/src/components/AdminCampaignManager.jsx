@@ -31,7 +31,7 @@ const AdminCampaignManager = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:8080/api/campaigns", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/campaigns", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
