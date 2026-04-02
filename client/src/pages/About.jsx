@@ -7,12 +7,11 @@ const About = () => {
   const founders = [
     {
       id: 1,
-      name: "Bipul Das",
+      name: "Ashish Prajapat",
       role: "Founder & Lead Developer",
       bio: "A passionate technologist dedicated to solving the critical logistics gap in emergency healthcare. Built BloodLink to ensure no life is lost due to a lack of connection.",
       // Using a random person image for placeholder
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+      image: "",
     },
     // You can add more team members here
   ];
