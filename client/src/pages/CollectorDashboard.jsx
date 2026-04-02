@@ -5,7 +5,7 @@ import "../styles/collectorDashboard.css"; // Import premium styles
 // Helper for fetching collections
 const fetchCollectionsHelper = async (token) => {
   try {
-    const res = await fetch("http://localhost:8080/api/collections", {
+    const res = await fetch("https://blood-bank-m-system.onrender.com/api/collections", {
       headers: { Authorization: `Bearer ${token}` },
     });
     return await res.json();

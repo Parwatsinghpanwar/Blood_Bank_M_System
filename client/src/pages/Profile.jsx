@@ -26,7 +26,7 @@ const Profile = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/auth/profile", {
+        const res = await fetch("https://blood-bank-m-system.onrender.com/api/auth/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -74,7 +74,7 @@ const Profile = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/api/auth/profile", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/auth/profile", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

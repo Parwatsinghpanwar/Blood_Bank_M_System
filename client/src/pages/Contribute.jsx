@@ -32,7 +32,7 @@ const Contribute = () => {
   useEffect(() => {
     if (activeTab === "blood") {
       setLoading(true);
-      fetch("http://localhost:8080/api/auth/hospitals")
+      fetch("https://blood-bank-m-system.onrender.com/api/auth/hospitals")
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {

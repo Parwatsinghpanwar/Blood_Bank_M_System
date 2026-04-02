@@ -20,7 +20,7 @@ const HospitalDashboard = () => {
   // Fetch Current Stock
   const fetchInventory = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/inventory", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/inventory", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -35,7 +35,7 @@ const HospitalDashboard = () => {
   // Fetch Transaction History
   const fetchHistory = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/inventory/history", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/inventory/history", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -58,7 +58,7 @@ const HospitalDashboard = () => {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:8080/api/inventory", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/inventory", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

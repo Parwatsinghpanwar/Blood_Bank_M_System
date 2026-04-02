@@ -18,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/public/stats");
+        const res = await fetch("https://blood-bank-m-system.onrender.com/api/public/stats");
         const data = await res.json();
         if (data.success) {
           setStats(data.data);

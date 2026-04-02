@@ -31,7 +31,7 @@ const AdminDashboard = () => {
   // --- 2. Fetch Users & Extract Hospitals ---
   const fetchUsers = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/admin/users", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/admin/users", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -57,8 +57,8 @@ const AdminDashboard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = editingId
-      ? `http://localhost:8080/api/admin/users/${editingId}`
-      : "http://localhost:8080/api/admin/users";
+      ? `https://blood-bank-m-system.onrender.com/api/admin/users/${editingId}`
+      : "https://blood-bank-m-system.onrender.com/api/admin/users";
     const method = editingId ? "PUT" : "POST";
 
     const submissionData = { ...formData };
@@ -100,7 +100,7 @@ const AdminDashboard = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure? This action cannot be undone.")) return;
     try {
-      await fetch(`http://localhost:8080/api/admin/users/${id}`, {
+      await fetch(`https://blood-bank-m-system.onrender.com/api/admin/users/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

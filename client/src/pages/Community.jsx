@@ -26,7 +26,7 @@ const Community = () => {
     if (!token) return alert("Please login to ask a question.");
 
     try {
-      const res = await fetch("http://localhost:8080/api/questions", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/questions", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

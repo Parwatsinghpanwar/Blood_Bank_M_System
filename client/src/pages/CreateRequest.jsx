@@ -22,7 +22,7 @@ const CreateRequest = () => {
     console.log("Submitting Form Data:", formData); // Debug log
 
     try {
-      const res = await fetch("http://localhost:8080/api/requests", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

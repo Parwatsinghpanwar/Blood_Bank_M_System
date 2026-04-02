@@ -25,7 +25,7 @@ const DonorDashboard = () => {
 
     const fetchLiveProfile = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/auth/profile", {
+        const res = await fetch("https://blood-bank-m-system.onrender.com/api/auth/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -49,7 +49,7 @@ const DonorDashboard = () => {
     const fetchData = async () => {
       try {
         // 1. Fetch Requests
-        const res = await fetch("http://localhost:8080/api/requests/active", {
+        const res = await fetch("https://blood-bank-m-system.onrender.com/api/requests/active", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -76,7 +76,7 @@ const DonorDashboard = () => {
         }
 
         // 2. Fetch Campaigns
-        const campRes = await fetch("http://localhost:8080/api/campaigns", {
+        const campRes = await fetch("https://blood-bank-m-system.onrender.com/api/campaigns", {
           headers: { Authorization: `Bearer ${token}` },
         });
         const campData = await campRes.json();
@@ -84,7 +84,7 @@ const DonorDashboard = () => {
 
         // 3. Fetch Verified History
         const historyRes = await fetch(
-          "http://localhost:8080/api/collections/my-history",
+          "https://blood-bank-m-system.onrender.com/api/collections/my-history",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -110,7 +110,7 @@ const DonorDashboard = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/api/requests/${reqId}/complete`,
+        `https://blood-bank-m-system.onrender.com/api/requests/${reqId}/complete`,
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
@@ -135,7 +135,7 @@ const DonorDashboard = () => {
   const handleJoinCampaign = async (campaignId) => {
     try {
       const res = await fetch(
-        `http://localhost:8080/api/campaigns/${campaignId}/join`,
+        `https://blood-bank-m-system.onrender.com/api/campaigns/${campaignId}/join`,
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
