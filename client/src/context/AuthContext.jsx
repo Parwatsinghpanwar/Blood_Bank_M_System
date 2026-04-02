@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   // --- API URL (Backend) ---
-  const API_URL = "http://localhost:8080/api/auth";
+  const API_URL = "https://blood-bank-m-system.onrender.com/api/auth";
 
   // --- 3. CHECK LOGGED IN STATUS ON LOAD ---
   useEffect(() => {

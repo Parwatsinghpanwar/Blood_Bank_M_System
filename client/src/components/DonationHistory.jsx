@@ -10,7 +10,7 @@ const DonationHistory = () => {
     const fetchHistory = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/donations/my-history",
+          "https://blood-bank-m-system.onrender.com/api/donations/my-history",
           {
             headers: {
               Authorization: `Bearer ${token}`,

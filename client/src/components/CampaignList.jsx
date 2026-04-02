@@ -11,7 +11,7 @@ const CampaignList = () => {
     const fetchCampaigns = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/campaigns/active",
+          "https://blood-bank-m-system.onrender.com/api/campaigns/active",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -34,7 +34,7 @@ const CampaignList = () => {
   const handleJoin = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/campaigns/${id}/join`,
+        `https://blood-bank-m-system.onrender.com/api/campaigns/${id}/join`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

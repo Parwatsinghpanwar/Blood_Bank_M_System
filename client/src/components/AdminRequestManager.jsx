@@ -43,7 +43,7 @@ const AdminRequestManager = () => {
     setSelectedReqId(reqId);
     setMatches(null);
     const res = await fetch(
-      `http://localhost:8080/api/requests/${reqId}/match`,
+      `https://blood-bank-m-system.onrender.com/api/requests/${reqId}/match`,
       { headers: { Authorization: `Bearer ${token}` } }
     );
     const data = await res.json();
@@ -79,7 +79,7 @@ const AdminRequestManager = () => {
     try {
       // 1. FETCH SPECIFIC USER LIVE DATA
       const res = await fetch(
-        `http://localhost:8080/api/users/${volunteer.user._id}`,
+        `https://blood-bank-m-system.onrender.com/api/users/${volunteer.user._id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -197,10 +197,10 @@ const AdminRequestManager = () => {
       let url = "";
       let body = {};
       if (action.type === "stock") {
-        url = `http://localhost:8080/api/requests/${action.reqId}/fulfill`;
+        url = `https://blood-bank-m-system.onrender.com/api/requests/${action.reqId}/fulfill`;
         body = { inventoryId: action.id, unitsUsed: action.units };
       } else {
-        url = `http://localhost:8080/api/requests/${action.reqId}/assign-volunteer`;
+        url = `https://blood-bank-m-system.onrender.com/api/requests/${action.reqId}/assign-volunteer`;
         body = { volunteerId: action.id };
       }
 

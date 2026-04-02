@@ -34,7 +34,7 @@ const EmergencyFeed = ({ userOverride }) => {
     const fetchRequests = async () => {
       try {
         const response = await fetch(
-          "http://localhost:8080/api/requests/active",
+          "https://blood-bank-m-system.onrender.com/api/requests/active",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -70,7 +70,7 @@ const EmergencyFeed = ({ userOverride }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8080/api/requests/${requestId}/volunteer`,
+        `https://blood-bank-m-system.onrender.com/api/requests/${requestId}/volunteer`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

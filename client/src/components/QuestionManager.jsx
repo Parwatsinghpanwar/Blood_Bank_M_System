@@ -11,7 +11,7 @@ const QuestionManager = () => {
   // Fetch Pending
   const fetchPending = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/questions/pending", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/questions/pending", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -31,7 +31,7 @@ const QuestionManager = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:8080/api/questions/${id}/answer`,
+        `https://blood-bank-m-system.onrender.com/api/questions/${id}/answer`,
         {
           method: "PUT",
           headers: {

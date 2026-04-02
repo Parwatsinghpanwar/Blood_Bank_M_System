@@ -14,7 +14,7 @@ const AdminCampaignManager = () => {
 
   const fetchCampaigns = async () => {
     try {
-      const res = await fetch("http://localhost:8080/api/campaigns", {
+      const res = await fetch("https://blood-bank-m-system.onrender.com/api/campaigns", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
