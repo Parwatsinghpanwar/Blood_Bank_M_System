@@ -168,3 +168,24 @@ exports.searchDonors = async (req, res) => {
     res.status(500).json({ success: false, message: "Server Error" });
   }
 };
+// @desc    Get ALL donations (Admin Panel)
+exports.getAllDonations = async (req, res) => {
+  try {
+    const donations = await BloodCollection.find()
+      .populate("donorId", "name phone bloodGroup")
+      .populate("collectorId", "name")
+      .sort({ createdAt: -1 });
+
+    res.status(200).json({
+      success: true,
+      count: donations.length,
+      data: donations,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      success: false,
+      message: "Server Error",
+    });
+  }
+};

@@ -3,6 +3,7 @@ import AuthContext from "../context/AuthContext";
 import AdminCampaignManager from "../components/AdminCampaignManager";
 import AdminRequestManager from "../components/AdminRequestManager";
 import QuestionManager from "../components/QuestionManager";
+import AdminDonorList from "../components/AdminDonorList";
 import "../styles/adminDashboard.css";
 
 const AdminDashboard = () => {
@@ -10,7 +11,7 @@ const AdminDashboard = () => {
   const [users, setUsers] = useState([]);
   const [activeTab, setActiveTab] = useState("staff");
   const [hospitals, setHospitals] = useState([]);
-
+  const [donations, setDonations] = useState([]);
   // --- 1. Form State Initialization ---
   const initialFormState = {
     name: "",
@@ -43,6 +44,22 @@ const AdminDashboard = () => {
           (u) => u.role === "hospital" || u.role === "bloodbank"
         );
         setHospitals(hospitalList);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  const fetchDonations = async () => {
+    try {
+      const res = await fetch(
+        "https://blood-bank-m-system.onrender.com/api/collections/all",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+      const data = await res.json();
+      if (data.success) {
+        setDonations(data.data);
       }
     } catch (err) {
       console.error(err);
@@ -88,6 +105,7 @@ const AdminDashboard = () => {
         setFormData(initialFormState);
         setEditingId(null);
         fetchUsers();
+        fetchDonations();
       } else {
         alert(data.message);
       }
@@ -207,12 +225,19 @@ const AdminDashboard = () => {
         >
           Campaigns
         </button>
+        <button
+          onClick={() => setActiveTab("donors")}
+          style={{ fontWeight: activeTab === "donors" ? "bold" : "normal" }}
+        >
+          Donor List
+        </button>
       </div>
 
       {/* --- CONTENT SECTIONS --- */}
       {activeTab === "queue" && <AdminRequestManager />}
       {activeTab === "campaigns" && <AdminCampaignManager />}
       {activeTab === "qa" && <QuestionManager />}
+      {activeTab === "donors" && <AdminDonorList />}
 
       {activeTab === "staff" && (
         <div className="staff-section">
@@ -414,6 +439,7 @@ const AdminDashboard = () => {
               ))}
             </tbody>
           </table>
+
         </div>
       )}
     </div>

@@ -350,7 +350,100 @@
     color: #475569;
     border: 1px solid #e2e8f0;
 }
+/* --- DONOR LIST SECTION (MATCHING ADMIN DESIGN) --- */
+.donor-list-container {
+    animation: fadeIn 0.6s ease-out;
+}
 
+/* Heading same as staff-section */
+.donor-list-container h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--adm-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+/* Table same as staff table */
+.donor-list-container table {
+    width: 100%;
+    background-color: var(--adm-surface);
+    border-radius: var(--adm-radius);
+    overflow: hidden;
+    box-shadow: var(--adm-shadow-md);
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid var(--adm-border);
+}
+
+/* Table Head */
+.donor-list-container thead {
+    background-color: #f1f5f9;
+}
+
+.donor-list-container thead th {
+    padding: 18px 24px;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--adm-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--adm-border);
+}
+
+/* Table Body */
+.donor-list-container tbody tr {
+    background-color: var(--adm-surface);
+}
+
+.donor-list-container tbody tr:not(:last-child) td {
+    border-bottom: 1px solid var(--adm-border);
+}
+
+.donor-list-container tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.donor-list-container td {
+    padding: 18px 24px;
+    font-size: 0.95rem;
+    color: var(--adm-text-main);
+}
+
+/* Highlight Blood Group */
+.donor-list-container td:nth-child(2) {
+    font-weight: 700;
+    color: var(--adm-danger);
+}
+
+/* Units badge */
+.donor-units {
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .donor-list-container {
+        overflow-x: auto;
+        border-radius: var(--adm-radius);
+        box-shadow: var(--adm-shadow-md);
+    }
+
+    .donor-list-container table {
+        min-width: 600px;
+        border: none;
+        box-shadow: none;
+    }
+}
 /* Table Action Buttons */
 .btn-edit-user {
     background-color: var(--adm-surface);

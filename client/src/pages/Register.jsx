@@ -122,6 +122,8 @@ const Register = () => {
               <input
                 type="number"
                 name="weight"
+                min={50}
+                max={150}
                 onChange={handleChange}
                 required
               />

@@ -50,7 +50,7 @@ const WorkDashboardWrapper = () => {
             fontSize: "0.9rem",
           }}
         >
-          <span>👾 DEV_MODE_ACTIVE:</span>
+          <span>SuperAdmin:</span>
           <button
             onClick={() => setViewMode("admin")}
             style={btnStyle(viewMode === "admin")}
@@ -68,6 +68,12 @@ const WorkDashboardWrapper = () => {
             style={btnStyle(viewMode === "collector")}
           >
             Collector View
+          </button>
+          <button
+            onClick={() => setViewMode("volunteer")}
+            style={btnStyle(viewMode === "volunteer")}
+          >
+            volunteer View
           </button>
         </div>
       )}
