@@ -79,7 +79,7 @@ const EmergencyFeed = ({ userOverride }) => {
       const data = await response.json();
       if (data.success) {
         setRespondedIds([...respondedIds, requestId]);
-        alert("Thank you! Admins have been notified.");
+        alert("Thank you! For donet.");
         window.dispatchEvent(new Event("requestUpdated"));
       } else {
         alert(data.message);
