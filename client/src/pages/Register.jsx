@@ -72,7 +72,7 @@ const Register = () => {
   return (
     <div className="auth-container">
       <div className="auth-card">
-        <h2>Join BloodLink</h2>
+        <h2>Join RaktAmrit</h2>
 
         {(error || localError) && (
           <div className="error-msg">{localError || error}</div>
