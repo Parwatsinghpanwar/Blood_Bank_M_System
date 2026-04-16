@@ -6,7 +6,6 @@ const CampaignList = () => {
   const [campaigns, setCampaigns] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch Campaigns on Mount
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
@@ -16,7 +15,9 @@ const CampaignList = () => {
             headers: { Authorization: `Bearer ${token}` },
           }
         );
+
         const data = await response.json();
+
         if (data.success) {
           setCampaigns(data.data);
         }
@@ -30,25 +31,22 @@ const CampaignList = () => {
     fetchCampaigns();
   }, [token]);
 
-  // Handle Join Action
   const handleJoin = async (id) => {
     try {
       const response = await fetch(
         `https://blood-bank-m-system.onrender.com/api/campaigns/${id}/join`,
         {
-          method: "POST",
+          method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
         }
       );
+
       const data = await response.json();
 
       if (data.success) {
-        // Optimistically update UI: Add current user ID to participants list locally
-        setCampaigns(
-          campaigns.map((camp) =>
-            camp._id === id
-              ? { ...camp, participants: [...camp.participants, user._id] }
-              : camp
+        setCampaigns((prev) =>
+          prev.map((camp) =>
+            camp._id === id ? data.data : camp
           )
         );
       }
@@ -68,7 +66,10 @@ const CampaignList = () => {
       ) : (
         <div className="campaign-grid" style={{ display: "grid", gap: "15px" }}>
           {campaigns.map((camp) => {
-            const isJoined = camp.participants.includes(user._id);
+            const isJoined = camp.participants?.some(
+              (participant) =>
+                participant._id === user._id || participant === user._id
+            );
 
             return (
               <div
@@ -83,9 +84,11 @@ const CampaignList = () => {
                 <h4 style={{ margin: "0 0 5px 0", color: "#1565c0" }}>
                   {camp.title}
                 </h4>
+
                 <p style={{ margin: "5px 0", fontSize: "0.9rem" }}>
                   {camp.description}
                 </p>
+
                 <div
                   style={{
                     fontSize: "0.85rem",
@@ -93,10 +96,28 @@ const CampaignList = () => {
                     marginBottom: "10px",
                   }}
                 >
-                  <strong>📍 {camp.location}</strong> <br />
-                  📅 {new Date(camp.startDate).toLocaleDateString()} -{" "}
-                  {new Date(camp.endDate).toLocaleDateString()}
+                  <strong>📍 {camp.location}</strong>
+                  <br />
+                  📅 {new Date(camp.date).toLocaleDateString()}
                 </div>
+
+                <p>
+                  <strong>Total Joined:</strong> {camp.participants?.length || 0}
+                </p>
+
+                {camp.participants?.length > 0 && (
+                  <div style={{ marginBottom: "10px" }}>
+                    <strong>Joined Users:</strong>
+                    <ul>
+                      {camp.participants.map((participant) => (
+                        <li key={participant._id || participant}>
+                          {participant.name || "User"}{" "}
+                          {participant.email ? `- ${participant.email}` : ""}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
 
                 <button
                   onClick={() => handleJoin(camp._id)}
