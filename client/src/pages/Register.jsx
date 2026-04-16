@@ -157,7 +157,7 @@ const Register = () => {
                 type="text"
                 name="city"
                 onChange={handleChange}
-                placeholder="Dhaka"
+                placeholder="ujjain"
                 required
               />
             </div>
@@ -167,7 +167,7 @@ const Register = () => {
                 type="text"
                 name="location"
                 onChange={handleChange}
-                placeholder="Dhanmondi"
+                placeholder="Area / District"
                 required
               />
             </div>
