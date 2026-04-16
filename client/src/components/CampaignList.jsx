@@ -12,14 +12,16 @@ const CampaignList = () => {
         const response = await fetch(
           "https://blood-bank-m-system.onrender.com/api/campaigns/active",
           {
-            headers: { Authorization: `Bearer ${token}` },
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           }
         );
 
         const data = await response.json();
 
         if (data.success) {
-          setCampaigns(data.data);
+          setCampaigns(data.data || []);
         }
       } catch (error) {
         console.error("Error fetching campaigns:", error);
@@ -37,7 +39,9 @@ const CampaignList = () => {
         `https://blood-bank-m-system.onrender.com/api/campaigns/${id}/join`,
         {
           method: "PUT",
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
@@ -45,13 +49,11 @@ const CampaignList = () => {
 
       if (data.success) {
         setCampaigns((prev) =>
-          prev.map((camp) =>
-            camp._id === id ? data.data : camp
-          )
+          prev.map((camp) => (camp._id === id ? data.data : camp))
         );
       }
     } catch (error) {
-      console.error("Error joining:", error);
+      console.error("Error joining campaign:", error);
     }
   };
 
@@ -62,14 +64,20 @@ const CampaignList = () => {
       <h3>📢 Active Campaigns</h3>
 
       {campaigns.length === 0 ? (
-        <p>No active donation drives nearby. Check back later!</p>
+        <p>No active donation drives nearby.</p>
       ) : (
         <div className="campaign-grid" style={{ display: "grid", gap: "15px" }}>
           {campaigns.map((camp) => {
-            const isJoined = camp.participants?.some(
-              (participant) =>
-                participant._id === user._id || participant === user._id
-            );
+            const participants = camp.participants || [];
+
+            const isJoined = participants.some((participant) => {
+              const participantId =
+                typeof participant === "object"
+                  ? participant._id
+                  : participant;
+
+              return participantId === user._id;
+            });
 
             return (
               <div
@@ -81,40 +89,37 @@ const CampaignList = () => {
                   backgroundColor: "#e3f2fd",
                 }}
               >
-                <h4 style={{ margin: "0 0 5px 0", color: "#1565c0" }}>
-                  {camp.title}
-                </h4>
+                <h4 style={{ color: "#1565c0" }}>{camp.title}</h4>
 
-                <p style={{ margin: "5px 0", fontSize: "0.9rem" }}>
-                  {camp.description}
-                </p>
-
-                <div
-                  style={{
-                    fontSize: "0.85rem",
-                    color: "#555",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <strong>📍 {camp.location}</strong>
-                  <br />
-                  📅 {new Date(camp.date).toLocaleDateString()}
-                </div>
+                <p>{camp.description}</p>
 
                 <p>
-                  <strong>Total Joined:</strong> {camp.participants?.length || 0}
+                  <strong>📍 {camp.location}</strong>
                 </p>
 
-                {camp.participants?.length > 0 && (
-                  <div style={{ marginBottom: "10px" }}>
-                    <strong>Joined Users:</strong>
+                <p>
+                  📅 {new Date(camp.date).toLocaleDateString()}
+                </p>
+
+                <p>
+                  <strong>Total Joined:</strong> {participants.length}
+                </p>
+
+                {participants.length > 0 && (
+                  <div>
+                    <strong>Joined Donors:</strong>
                     <ul>
-                      {camp.participants.map((participant) => (
-                        <li key={participant._id || participant}>
-                          {participant.name || "User"}{" "}
-                          {participant.email ? `- ${participant.email}` : ""}
-                        </li>
-                      ))}
+                      {participants.map((participant, index) => {
+                        if (typeof participant === "object") {
+                          return (
+                            <li key={participant._id}>
+                              {participant.name} - {participant.email}
+                            </li>
+                          );
+                        }
+
+                        return <li key={index}>User Joined</li>;
+                      })}
                     </ul>
                   </div>
                 )}
@@ -124,7 +129,7 @@ const CampaignList = () => {
                   disabled={isJoined}
                   style={{
                     backgroundColor: isJoined ? "#4caf50" : "#2196f3",
-                    color: "white",
+                    color: "#fff",
                     border: "none",
                     padding: "8px 16px",
                     borderRadius: "4px",
